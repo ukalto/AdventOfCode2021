@@ -34,7 +34,6 @@ def calcPath2(horizontal, depth, aim):
 
 
 if __name__ == '__main__':
-    print("*Task 1*")
     print("Part 1")
     print(calcPath1(0, 0))
     print("Part 2")
