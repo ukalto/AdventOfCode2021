@@ -1,6 +1,6 @@
 import os
 
-directory = os.path.dirname(os.getcwd()) +"\Inputs"
+directory = os.path.dirname(os.getcwd()) + "\Inputs"
 path = os.path.join(directory, "Day1.txt")
 
 
