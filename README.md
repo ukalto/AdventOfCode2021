@@ -1,20 +1,23 @@
 # Advent of Code 2021 Python
+
 ### Days
-* [Day 1](https://github.com/ukalto/AdventOfCode2021/tree/main/Day01)
 
-* [Day 2](https://github.com/ukalto/AdventOfCode2021/tree/main/Day02)
+* [Day 1](https://github.com/ukalto/AdventOfCode2021/blob/main/Day01/day01.py)
 
-* [Day 3](https://github.com/ukalto/AdventOfCode2021/tree/main/Day03)
+* [Day 2](https://github.com/ukalto/AdventOfCode2021/blob/main/Day02/day02.py)
 
-* [Day 4](https://github.com/ukalto/AdventOfCode2021/tree/main/Day04)
+* [Day 3](https://github.com/ukalto/AdventOfCode2021/blob/main/Day03/day03.py)
 
-* [Day 5](https://github.com/ukalto/AdventOfCode2021/tree/main/Day05)
+* [Day 4](https://github.com/ukalto/AdventOfCode2021/blob/main/Day04/day04.py)
 
-* [Day 6](https://github.com/ukalto/AdventOfCode2021/tree/main/Day06)
+* [Day 5](https://github.com/ukalto/AdventOfCode2021/blob/main/Day05/day05.py)
 
-* [Day 7](https://github.com/ukalto/AdventOfCode2021/tree/main/Day07)
+* [Day 6](https://github.com/ukalto/AdventOfCode2021/blob/main/Day06/day06.py)
+
+* [Day 7](https://github.com/ukalto/AdventOfCode2021/blob/main/Day07/day07.py)
 
 ### Console output
+
 ```
 Day 1
 Part 1: 1477
