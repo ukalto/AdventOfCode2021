@@ -44,5 +44,6 @@ def partTwo():
 
 
 if __name__ == '__main__':
+    print("Day 6")
     print(f"Part 1: {partOne()}")
     print(f"Part 2: {partTwo()}")

@@ -4,7 +4,7 @@ directory = os.path.dirname(os.getcwd()) + "\Inputs"
 path = os.path.join(directory, "Day2.txt")
 
 
-def calcPath1(horizontal, depth):
+def partOne(horizontal, depth):
     file1 = open(path, 'r')
     lines = file1.readlines()
     for i in lines:
@@ -18,7 +18,7 @@ def calcPath1(horizontal, depth):
     return horizontal * depth
 
 
-def calcPath2(horizontal, depth, aim):
+def partTwo(horizontal, depth, aim):
     file1 = open(path, 'r')
     lines = file1.readlines()
     for i in lines:
@@ -34,7 +34,6 @@ def calcPath2(horizontal, depth, aim):
 
 
 if __name__ == '__main__':
-    print("Part 1")
-    print(calcPath1(0, 0))
-    print("Part 2")
-    print(calcPath2(0, 0, 0))
+    print("Day 2")
+    print(f"Part 1: {partOne(0, 0)}")
+    print(f"Part 2: {partTwo(0, 0, 0)}")

@@ -4,7 +4,7 @@ directory = os.path.dirname(os.getcwd()) + "\Inputs"
 path = os.path.join(directory, "Day1.txt")
 
 
-def countIncreas1():
+def partOne():
     file1 = open(path, 'r')
     lines = file1.readlines()
     current = open(path).readline().rstrip()
@@ -16,7 +16,7 @@ def countIncreas1():
     return countI
 
 
-def countIncreas2():
+def partTwo():
     file1 = open(path, 'r')
     lines = file1.readlines()
     countI = 0
@@ -34,8 +34,6 @@ def countIncreas2():
 
 
 if __name__ == '__main__':
-    print("*Task 1*")
-    print("Part 1")
-    print(countIncreas1())
-    print("Part 2")
-    print(countIncreas2())
+    print("Day 1")
+    print(f"Part 1: {partOne()}")
+    print(f"Part 2: {partTwo()}")

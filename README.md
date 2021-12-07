@@ -12,6 +12,8 @@
 
 * [Day 6](https://github.com/ukalto/AdventOfCode2021/tree/main/Day06)
 
+* [Day 7](https://github.com/ukalto/AdventOfCode2021/tree/main/Day07)
+
 ### Console output
 ```
 Day 1
@@ -37,4 +39,8 @@ Part 2: 19771
 Day 6
 Part 1: 372300
 Part 2: 1675781200288
+
+Day 7
+Part 1: 336131
+Part 2: 92676646
 ```

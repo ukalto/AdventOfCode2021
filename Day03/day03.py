@@ -2,7 +2,6 @@ import os
 
 directory = os.path.dirname(os.getcwd()) + "\Inputs"
 path = os.path.join(directory, "Day3.txt")
-get_bin = lambda x: format(x, 'b')
 
 
 def calcGamma():
@@ -67,5 +66,6 @@ def getCO2Oxygen(check):
 
 
 if __name__ == '__main__':
+    print("Day 3")
     print(f"Part 1: {int(reverseBits(calcGamma()), 2) * int(calcGamma(), 2)}")
     print(f"Part 2: {getCO2Oxygen(True) * getCO2Oxygen(False)}")
