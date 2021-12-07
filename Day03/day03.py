@@ -7,17 +7,17 @@ get_bin = lambda x: format(x, 'b')
 
 def calcGamma():
     file1 = open(path, 'r')
-    lines = file1.readlines()
+    raw_data = file1.read()
+    lines = raw_data.split("\n")
     gamep = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for line in lines:
         counter = 0
         for character in line:
-            if character != "\n":
-                saveVal = int(character)
-                if saveVal != 1:
-                    saveVal = -1
-                gamep[counter] += saveVal
-                counter += 1
+            saveVal = int(character)
+            if saveVal != 1:
+                saveVal = -1
+            gamep[counter] += saveVal
+            counter += 1
     output = ""
     for i in gamep:
         if int(i) <= 0:
