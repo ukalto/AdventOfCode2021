@@ -22,35 +22,36 @@ def transformInput(data):
     return my_array
 
 
-def checkRows(board):
-    counter = 0
-    for i in range(len(board)):
-        if i != 0 and i % 5 == 0:
-            counter = 0
-        if int(board[i]) == -1:
-            counter += 1
-        if counter == 5:
-            return True
+def checkRows(my_array, number):
+    for board in my_array:
+        counter = 0
+        for i in range(len(board)):
+            if i != 0 and i % 5 == 0:
+                counter = 0
+            if int(board[i]) == -1:
+                counter += 1
+            if counter == 5:
+                return calcScore(board, number)
+    return 0
 
-    return False
 
-
-def checkColumns(board):
-    z = 5
-    x = 0
-    y = 0
-    counter = 0
-    while (x + 1) * (y + 1) < len(board):
-        if y != 0 and y % 5 == 0:
-            x += 1
-            y = 0
-            counter = 0
-        if int(board[(z * y) + x]) == -1:
-            counter += 1
-        if counter == 5:
-            return True
-        y += 1
-    return False
+def checkColumns(my_array, number):
+    for board in my_array:
+        z = 5
+        x = 0
+        y = 0
+        counter = 0
+        while (x + 1) * (y + 1) < len(board):
+            if y != 0 and y % 5 == 0:
+                x += 1
+                y = 0
+                counter = 0
+            if int(board[(z * y) + x]) == -1:
+                counter += 1
+            if counter == 5:
+                return calcScore(board, number)
+            y += 1
+    return 0
 
 
 def calcScore(board, last_value):
@@ -63,89 +64,75 @@ def calcScore(board, last_value):
 
 def partOne():
     my_array = transformInput(getInput())
-    bingo_numbers = my_array[0]
-    my_array.remove(bingo_numbers)
+    bingo_numbers = my_array.pop(0)
     for number in bingo_numbers:
         for board in my_array:
             for i in range(len(board)):
                 if board[i] == number:
                     board[i] = -1
-        for board in my_array:
-            if checkRows(board) or checkColumns(board):
-                return calcScore(board, number)
+        if checkRows(my_array, number) != 0:
+            return checkRows(my_array, number)
+        elif checkColumns(my_array, number) != 0:
+            return checkColumns(my_array, number)
 
 
-def removeEntries(list, removes):
-    for r in removes:
-        list.remove(r)
-    return list
+def deleteRowWins(my_array):
+    curr = my_array.copy()
+    deleted = 0
+    for idx, board in enumerate(my_array):
+        counter = 0
+        for i in range(len(board)):
+            if len(curr) == 1: return curr
+            if i != 0 and i % 5 == 0:
+                counter = 0
+            if int(board[i]) == -1:
+                counter += 1
+            if counter == 5:
+                del curr[idx - deleted]
+                deleted += 1
+                break
+    return curr
 
 
-def getRounds(entry, numbers):
-    count = 0
-    for number in numbers:
-        for i in range(len(entry)):
-            if entry[i] == number:
-                entry[i] = -1
-        if checkRows(entry) or checkColumns(entry):
-            return count
-        else:
-            count += 1
+def deleteColumnWins(my_array):
+    curr = my_array.copy()
+    deleted = 0
+    for idx, board in enumerate(my_array):
+        z = 5
+        x = 0
+        y = 0
+        counter = 0
+        while (x + 1) * (y + 1) < len(board):
+            if len(curr) == 1: return curr
+            if y != 0 and y % 5 == 0:
+                x += 1
+                y = 0
+                counter = 0
+            if int(board[(z * y) + x]) == -1:
+                counter += 1
+            if counter == 5:
+                del curr[idx - deleted]
+                deleted += 1
+                break
+            y += 1
+    return curr
 
 
 def partTwo():
     my_array = transformInput(getInput())
-    bingo_numbers = my_array[0]
-    my_array.remove(bingo_numbers)
-    count = []
-    for i in my_array:
-        count.append(getRounds(i, bingo_numbers))
-    var = 0
-    for i in count:
-        if var < i:
-            var = i
-    print(my_array[30])
-    print(getRounds(my_array[29], bingo_numbers))
-    return var
-
-
-# def partTwo():
-#     my_array = transformInput(getInput())
-#     bingo_numbers = my_array[0]
-#     my_array.remove(bingo_numbers)
-#     while len(my_array) > 1:
-#         number = bingo_numbers[0]
-#         list_of_removes = []
-#         for board in my_array:
-#             for i in range(len(board)):
-#                 if board[i] == number:
-#                     board[i] = -1
-#         for board in my_array:
-#             if checkRows(board) or checkColumns(board):
-#                 list_of_removes.append(board)
-#         if len(list_of_removes) == len(my_array):
-#             return getLastWhen(my_array[0], bingo_numbers)
-#         else:
-#             my_array = removeEntries(my_array, list_of_removes)
-#         bingo_numbers.remove(number)
-#     return getLastWhen(my_array[0], bingo_numbers)
-
-
-# def getAllScores():
-#     my_array = transformInput(getInput())
-#     bingo_numbers = my_array[0]
-#     my_array.remove(bingo_numbers)
-#     x = 0
-#     for i in my_array:
-#         if x == 30:
-#             return i
-#         print(getLastWhen(i, bingo_numbers))
-#         x += 1
+    bingo_numbers = my_array.pop(0)
+    for number in bingo_numbers:
+        if len(my_array) == 1: return my_array
+        for board in my_array:
+            for i in range(len(board)):
+                if board[i] == number:
+                    board[i] = -1
+        my_array = deleteColumnWins(deleteRowWins(my_array))
+        if len(my_array) == 1:
+            return calcScore(my_array[0], number)
 
 
 if __name__ == '__main__':
     print("Day 4")
     print(f"Part 1: {partOne()}")
     print(f"Part 2: {partTwo()}")
-    # 12635
-    # ['35', '9', '82', '95', '40', '30', '10', '99', '7', '47', '12', '77', '54', '25', '34', '73', '97', '38', '11', '17', '70', '41', '87', '29', '57']
