@@ -16,6 +16,12 @@
 
 * [Day 7](https://github.com/ukalto/AdventOfCode2021/blob/main/Day07/day07.py)
 
+* [Day 8](https://github.com/ukalto/AdventOfCode2021/blob/main/Day08/day08.py)
+
+* [Day 9](https://github.com/ukalto/AdventOfCode2021/blob/main/Day09/day09.py)
+
+* [Day 910](https://github.com/ukalto/AdventOfCode2021/blob/main/Day10/day10.py)
+
 ### Console output
 
 ```
@@ -46,4 +52,16 @@ Part 2: 1675781200288
 Day 7
 Part 1: 336131
 Part 2: 92676646
+
+Day 8
+Part 1: 525
+Part 2: 
+
+Day 9
+Part 1: 496
+Part 2: 
+
+Day 10
+Part 1: 388713
+Part 2: 3539961434
 ```
